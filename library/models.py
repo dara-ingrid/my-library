@@ -13,6 +13,7 @@ class Livraria(models.Model):
     autor = models.CharField(max_length=100, null=False, blank=False)
     categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='')
     capa_livro = models.CharField(max_length=100, null=False, blank=False)
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
         return f"Livro [titulo={self.titulo}]"
