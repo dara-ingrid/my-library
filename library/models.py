@@ -19,4 +19,4 @@ class Livraria(models.Model):
     data_publicacao = models.DateTimeField(default=datetime.now, blank=False)
 
     def __str__(self):
-        return f"Livro [titulo={self.titulo}]"
+        return self.titulo
