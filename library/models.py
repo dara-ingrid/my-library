@@ -8,13 +8,13 @@ class Livraria(models.Model):
         ("AUTOAJUDA", "Autoajuda"),
         ("PROGRAMAÇÃO", "Programação"),
         ("CULINÁRIA", "Culinária"),
-        ("FICÇÃO CIENTÍFICA", "Ficção Científica"),
+        ("FICÇÃO", "Ficção"),
     ]
 
-    titulo = models.TextField(max_length=100, null=False, blank=False)
+    titulo = models.CharField(max_length=100, null=False, blank=False)
     autor = models.CharField(max_length=100, null=False, blank=False)
     categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='')
-    capa_livro = models.CharField(max_length=100, null=False, blank=False)
+    capa_livro = models.ImageField(upload_to="fotos/%Y/%m/%d", blank=True)
     disponivel = models.BooleanField(default=True)
     data_publicacao = models.DateTimeField(default=datetime.now, blank=False)
 
