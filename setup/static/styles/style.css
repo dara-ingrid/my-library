@@ -118,6 +118,11 @@ table {
     height: 2rem;
 }
 
+.busca__botao {
+    background-color: transparent;
+    border: none;
+}
+
 .cards {
     width: 100%;
 }
