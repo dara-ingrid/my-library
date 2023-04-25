@@ -1,1 +1,57 @@
-<h1>Buscar</h1>
+{% extends 'library/base.html' %}
+{% load static %}
+{% block content %}
+
+            <section class="conteudo">
+                <section class="banner">
+                    <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Livraria">
+                    <h1 class="banner__titulo"> A livraria mais top que você vai ver!</h1>
+                </section>
+                <section class="tags">
+                    <p class="tags__titulo">Busque por tags:</p>
+                    <ul class="tags__lista">
+                        <li class="tags__tag">Autoajuda</li>
+                        <li class="tags__tag">Programação</li>
+                        <li class="tags__tag">Culinária</li>
+                        <li class="tags__tag">Ficção</li>
+                    </ul>
+                </section>
+                <section class="galeria">
+                    <div class="cards">
+                        <h2 class="cards__titulo">Navegue pela livraria</h2>
+                        <ul class="cards__lista">
+                            {% if cards %}
+                            {% for livro in cards %}
+                            <li class="card">
+                                <a href="{% url 'imagem' livro.id %}">
+                                    {% if livro.capa_livro == "" or livro.capa_livro == null %}
+                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/notfound.png'%}" alt="foto">
+                                    {% else %}
+                                        <img class="card__imagem" src="{{livro.capa_livro.url}}" alt="foto">
+                                    {% endif %}
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">{{ livro.titulo }}</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">{{ livro.autor }}</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            <div class="imagem__texto">
+                                <p>Livro não encontrado</p>
+                            </div>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    
+{% endblock %}
