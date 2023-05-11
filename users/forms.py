@@ -47,22 +47,22 @@ class CadastroForms(forms.Form):
             }
         )
     )
-    senha_1=forms.EmailField(
+    senha_1=forms.CharField(
         label="Senha",
         required=True,
         max_length=100,
-        widget=forms.EmailInput(
+        widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
                 "placeholder" : "Insira sua senha"                
             }
         )
     )
-    senha_2=forms.EmailField(
+    senha_2=forms.CharField(
         label="Confirme sua senha",
         required=True,
         max_length=100,
-        widget=forms.EmailInput(
+        widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
                 "placeholder" : "Insira sua senha novamente"                
