@@ -4,8 +4,32 @@ from users.forms import LoginForms, CadastroForms
 
 from django.contrib.auth.models import User
 
+from django.contrib import auth
+
 def login(request):
     form = LoginForms()
+
+    if request.method == 'POST':
+        form = LoginForms(request.POST)
+
+        if form.is_valid():
+            nome = form['nome_login'].value()
+            senha = form['senha'].value()
+
+        user = auth.authenticate(
+            request,
+            username=nome,
+            password=senha
+        )
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('index')
+        else:
+            return redirect('login')
+
+
+
     return render(request, "users/login.html", {"form": form})
 
 def cadastro(request):
