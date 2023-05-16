@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from library.models import Livraria
+from apps.library.models import Livraria
 
 from django.contrib import messages
 

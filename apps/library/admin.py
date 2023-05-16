@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from library.models import Livraria
+from apps.library.models import Livraria
 
 class ListandoLivros(admin.ModelAdmin):
     list_display = ("id", "titulo", "autor","disponivel")
