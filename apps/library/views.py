@@ -29,3 +29,13 @@ def buscar(request):
             livros = livros.filter(titulo__icontains=nome_a_buscar)
 
     return render(request, "library/buscar.html", {"cards": livros})
+
+
+def nova_imagem(request):
+    return render(request, 'library/nova_imagem.html')
+
+def editar_imagem(request):
+    pass
+
+def deletar_imagem(request):
+    pass
