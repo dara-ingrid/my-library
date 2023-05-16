@@ -5,6 +5,11 @@ class LivrariaForms(forms.ModelForm):
     class Meta:
         model = Livraria
         exclude = ['disponivel',]
+        labels = {
+            'titulo': 'Título',
+            'data_publicacao' :'Data de registro',
+            'usuario': 'Usuário'
+        }
 
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control',}),

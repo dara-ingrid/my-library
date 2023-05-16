@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from apps.library.models import Livraria
 
+from apps.library.forms import LivrariaForms
+
 from django.contrib import messages
 
 def index(request):
@@ -32,7 +34,20 @@ def buscar(request):
 
 
 def nova_imagem(request):
-    return render(request, 'library/nova_imagem.html')
+
+    if not request.user.is_authenticated:
+        messages.error(request, "Usuário não logado!")
+        return redirect('login')
+
+    form = LivrariaForms
+    if request.method == 'POST':
+        form = LivrariaForms(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Novo livro cadastrado')
+            return redirect('index')
+
+    return render(request, 'library/nova_imagem.html', {'form': form})
 
 def editar_imagem(request):
     pass
