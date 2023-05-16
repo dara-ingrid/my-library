@@ -1,5 +1,6 @@
+{% extends 'shared/base.html' %}
 {% load static %}
-{% include 'partials/_menuUsers.html' %}
+{% block content %}
 
             <section class="galeria" style="margin-left: 5em">
                 <form action="{% url 'login' %}" method="POST">
@@ -21,4 +22,4 @@
     </div>
 </body>
 
-{% include 'partials/_footer.html' %}
+{% endblock %}
