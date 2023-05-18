@@ -10,10 +10,10 @@
                 <section class="tags">
                     <p class="tags__titulo">Busque por tags:</p>
                     <ul class="tags__lista">
-                        <li class="tags__tag">Autoajuda</li>
-                        <li class="tags__tag">Programação</li>
-                        <li class="tags__tag">Culinária</li>
-                        <li class="tags__tag">Ficção</li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'AUTOAJUDA' %}" class="btn" style="color: #C9C9C9">Autoajuda</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'PROGRAMAÇÃO' %}" class="btn" style="color: #C9C9C9">Programação</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'CULINÁRIA' %}" class="btn" style="color: #C9C9C9">Culinária</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'FICÇÃO' %}" class="btn" style="color: #C9C9C9">Ficção</a></li>
                     </ul>
                 </section>
                 <section class="galeria">

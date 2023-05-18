@@ -30,7 +30,7 @@ def buscar(request):
         if nome_a_buscar:
             livros = livros.filter(titulo__icontains=nome_a_buscar)
 
-    return render(request, "library/buscar.html", {"cards": livros})
+    return render(request, "library/index.html", {"cards": livros})
 
 
 def nova_imagem(request):
@@ -68,3 +68,7 @@ def deletar_imagem(request, foto_id):
     livro.delete()
     messages.success(request, 'Livro excluído com sucesso!')
     return redirect('index')
+
+def filtro(request, categoria):
+    livros = Livraria.objects.order_by("data_publicacao").filter(disponivel=True, categoria=categoria)
+    return render(request, 'library/index.html', {"cards": livros})
