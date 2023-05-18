@@ -41,7 +41,7 @@ def nova_imagem(request):
 
     form = LivrariaForms
     if request.method == 'POST':
-        form = LivrariaForms(request.POST)
+        form = LivrariaForms(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Novo livro cadastrado')
