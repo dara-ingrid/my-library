@@ -49,8 +49,19 @@ def nova_imagem(request):
 
     return render(request, 'library/nova_imagem.html', {'form': form})
 
-def editar_imagem(request):
-    pass
+def editar_imagem(request, foto_id):
+    livro = Livraria.objects.get(id=foto_id)
+    form = LivrariaForms(instance=livro)
+
+    if request.method == 'POST':
+        form = LivrariaForms(request.POST, request.FILES, instance=livro)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Livro editado com sucesso!')
+            return redirect('index')
+
+
+    return render(request, 'library/editar_imagem.html', {'form': form, 'foto_id': foto_id})
 
 def deletar_imagem(request):
     pass
