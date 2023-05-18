@@ -63,5 +63,8 @@ def editar_imagem(request, foto_id):
 
     return render(request, 'library/editar_imagem.html', {'form': form, 'foto_id': foto_id})
 
-def deletar_imagem(request):
-    pass
+def deletar_imagem(request, foto_id):
+    livro = Livraria.objects.get(id=foto_id)
+    livro.delete()
+    messages.success(request, 'Livro excluído com sucesso!')
+    return redirect('index')
