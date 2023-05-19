@@ -26,3 +26,9 @@ class LivrariaForms(forms.ModelForm):
              'usuario': forms.Select(attrs={'class': 'form-control',}),
             
         }
+    
+    def clean_titulo(self):
+        titulo = self.cleaned_data.get('titulo')
+        if Livraria.objects.filter(titulo=titulo).exists():
+            raise forms.ValidationError("O título já existe! Tente outro!")
+        return titulo

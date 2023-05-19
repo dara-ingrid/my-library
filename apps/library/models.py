@@ -13,7 +13,7 @@ class Livraria(models.Model):
         ("FICÇÃO", "Ficção"),
     ]
 
-    titulo = models.CharField(max_length=100, null=False, blank=False)
+    titulo = models.CharField(max_length=100, null=False, blank=False, unique=True)
     autor = models.CharField(max_length=100, null=False, blank=False)
     categoria = models.CharField(max_length=100, choices=OPCOES_CATEGORIA, default='')
     capa_livro = models.ImageField(upload_to="fotos/%Y/%m/%d", blank=True)
