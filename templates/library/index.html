@@ -4,7 +4,7 @@
 
             <section class="conteudo">
                 <section class="banner">
-                    <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Livraria">
+                    <img class="banner__imagem" src="{% static 'assets/imagens/Banner(2).png' %}" alt="banner Livraria">
                     <h1 class="banner__titulo"> A livraria mais top que você vai ver!</h1>
                 </section>
                 <section class="tags">
@@ -25,7 +25,7 @@
                             <li class="card">
                                 <a href="{% url 'imagem' livro.id %}">
                                     {% if livro.capa_livro == "" or livro.capa_livro == null %}
-                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/notfound.png'%}" alt="foto">
+                                        <img class="card__imagem" src="{% static 'assets/imagens/galeria/notfound.png'%}" alt="foto">
                                     {% else %}
                                         <img class="card__imagem" src="{{livro.capa_livro.url}}" alt="foto">
                                     {% endif %}
@@ -36,7 +36,7 @@
                                     <div class="card__texto">
                                         <p class="card__descricao">{{ livro.autor }}</p>
                                         <span>
-                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                            <img src="{% static 'assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
                                         </span>
                                     </div>
                                 </div>

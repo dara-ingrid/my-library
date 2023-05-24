@@ -6,7 +6,7 @@
                 <section class="imagem">
                     <div class="imagem__conteudo">
                         {% if livro.capa_livro == "" or livro.capa_livro == null %}
-                            <img class="imagem__imagem" src="{% static '/assets/imagens/galeria/notfound.png'%}">
+                            <img class="imagem__imagem" src="{% static 'assets/imagens/galeria/notfound.png'%}">
                         {% else %}
                             <img class="imagem__imagem" src="{{ livro.capa_livro.url }}">
                         {% endif %}
