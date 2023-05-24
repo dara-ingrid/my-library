@@ -109,18 +109,12 @@ table {
     height: 24px;
     padding: 10px;
     width: 500px;
-    color: #FFFFFF;
 }
 
 .busca__icone {
     cursor: pointer;
     width: 2rem;
     height: 2rem;
-}
-
-.busca__botao {
-    background-color: transparent;
-    border: none;
 }
 
 .cards {
@@ -379,6 +373,7 @@ table {
     margin-right: 1.5rem;
     border-radius: 8px;
     padding: .8rem .5rem;
+    width: 100px;
     text-align: center;
     border: 2px solid transparent;
 }
@@ -406,16 +401,22 @@ table {
     border-radius: var(--bs-alert-border-radius);
 }
 
+.alert-primary {
+    --bs-alert-color: #084298;
+    --bs-alert-bg: #cfe2ff;
+    --bs-alert-border-color: #b6d4fe;
+}
+
+.alert-success {
+    --bs-alert-color: #0f5132;
+    --bs-alert-bg: #d1e7dd;
+    --bs-alert-border-color: #badbcc;
+}
+
 .alert-danger {
     --bs-alert-color: #842029;
     --bs-alert-bg: #f8d7da;
     --bs-alert-border-color: #f5c2c7;
-}
-
-.alert-primary {
-    --bs-alert-color: #0f5132;
-    --bs-alert-bg: #d1e7dd;
-    --bs-alert-border-color: #badbcc;
 }
 
 .row {
